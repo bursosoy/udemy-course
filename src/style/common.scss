@@ -1,0 +1,31 @@
+body {
+  background-color: #333;
+  color: #eee;
+}
+
+html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+// cards
+
+.cmn_card{
+  background-color: #eee;
+  border-radius: 0.5rem;
+  color: #111;
+  padding: 1rem;
+}
+
+// button
+
+.cmn_button{
+  background-color: #ff8800;
+  border: 0;
+  font-family: Source Sans Pro;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  border-radius: 0.75rem 0.75rem 0.75rem 0;
+  font-weight: bold;
+  letter-spacing: -0.02rem;
+}

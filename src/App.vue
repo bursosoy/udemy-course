@@ -1,26 +1,144 @@
+<style lang="scss">
+
+#app {
+    font-family: Source Sans Pro;
+    letter-spacing: -0.02rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+}
+
+#router-view {
+    padding: 2rem;
+}
+
+#page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+    #nav {
+        background-color: #222;
+        padding: 1.875rem;
+        min-width: 12rem;
+        //min-width: 12rem;
+        .nav-wrap {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
+        }
+        a {
+            text-decoration: none;
+            color: #eee;
+            padding: 0.4rem 0.75rem;
+        }
+
+        a:hover{
+          background-color: #eeeeee10;
+        }
+        a.router-link-exact-active {
+            font-weight: bold;
+            color: #ff8800;
+        }
+        .btn-wrap {
+            display: flex;
+            justify-content: space-between;
+            .btn-label{
+              display: flex;
+              align-items: center;
+              font-size: 1.25rem;
+              color: #aaa;
+            }
+            .btn-close {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                line-height: 0.5rem;
+                font-weight: bold;
+                background-color: #111;
+                color: tomato;
+                width: 2.5rem;
+                height: 2.5rem;
+                cursor: pointer;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #page-wrapper {
+        #nav {
+            .nav-wrap {
+              a {
+                  padding: 0.25rem 0.75rem;
+              }
+            }
+        }
+    }
+    #router-view {
+    }
+}
+
+</style>
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+<div id="page-wrapper">
+    <div id="nav">
+        <div class="btn-wrap">
+            <div class="btn-label"><span v-if="!navSettings.isDisplayed">{{ getLabel() }}</span></div>
+            <div class="btn-close" @click="toggleNav">{{ navSettings.label }}</div>
+        </div>
+        <div class="nav-wrap" v-if="navSettings.isDisplayed">
+            <router-link v-for="(link,index) in routerLinks" :to="link.path" @click="toggleNav" :key="index">{{ link.label }}</router-link>
+            <!--router-link to="/" @click="toggleNav">Home</router-link>
+            <router-link to="/adding-goals-vanilla" @click="toggleNav">Adding Goals (Vanilla)</router-link>
+            <router-link to="/adding-goals-vue" @click="toggleNav">Adding Goals (Vue)</router-link-->
+        </div>
+    </div>
+    <router-view id="router-view" v-if="!navSettings.isDisplayed" />
+</div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+    data() {
+        return {
+            navSettings: {
+                isDisplayed: false,
+                label: "..."
+            },
+            routerLinks: [{
+                path: "/",
+                label: "Home"
+            }, {
+                path: "/adding-goals-vanilla",
+                label: "Adding Goals (Vanilla)"
+            }, {
+                path: "/adding-goals-vue",
+                label: "Adding Goals (Vue)"
+            }]
+        }
+    },
+    methods: {
+        toggleNav() {
+                this.navSettings.isDisplayed = !this.navSettings.isDisplayed;
+                (this.navSettings.isDisplayed) ? this.navSettings.label = "x": this.navSettings.label = "..."
+                console.log(this.navSettings.isDisplayed)
+            },
+            getLabel() {
+                const linkObj = this.routerLinks.find(o => o.path === this.$route.path);
+                return linkObj.label
+                    //return this.$route.path
+            }
+    },
+    mounted() {}
 }
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+</script>
