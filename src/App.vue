@@ -5,11 +5,12 @@
     letter-spacing: -0.02rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100%;
+    // height: 100%;
+    min-width: 23.5rem;
 }
 
 #router-view {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 #page-wrapper {
@@ -34,9 +35,8 @@
             color: #eee;
             padding: 0.4rem 0.75rem;
         }
-
-        a:hover{
-          background-color: #eeeeee10;
+        a:hover {
+            background-color: #eeeeee10;
         }
         a.router-link-exact-active {
             font-weight: bold;
@@ -45,11 +45,11 @@
         .btn-wrap {
             display: flex;
             justify-content: space-between;
-            .btn-label{
-              display: flex;
-              align-items: center;
-              font-size: 1.25rem;
-              color: #aaa;
+            .btn-label {
+                display: flex;
+                align-items: center;
+                font-size: 1.25rem;
+                color: #aaa;
             }
             .btn-close {
                 display: flex;
@@ -68,38 +68,46 @@
     }
 }
 
+.hiddenTag {
+    display: none
+}
+
+.shownTag {
+    display: initial
+}
+
 @media only screen and (max-width: 375px) {
     #page-wrapper {
         #nav {
             .nav-wrap {
-              a {
-                  padding: 0.25rem 0.75rem;
-              }
+                a {
+                    padding: 0.25rem 0.75rem;
+                }
             }
         }
     }
-    #router-view {
-    }
+    #router-view {}
 }
 
 </style>
 
 <template>
-
 <div id="page-wrapper">
     <div id="nav">
         <div class="btn-wrap">
             <div class="btn-label"><span v-if="!navSettings.isDisplayed">{{ getLabel() }}</span></div>
-            <div class="btn-close" @click="toggleNav">{{ navSettings.label }}</div>
+            <div class="btn-close" @click="toggleNav()">{{ navSettings.label }}</div>
         </div>
         <div class="nav-wrap" v-if="navSettings.isDisplayed">
-            <router-link v-for="(link,index) in routerLinks" :to="link.path" @click="toggleNav" :key="index">{{ link.label }}</router-link>
+            <router-link v-for="link in routerLinks" :to="link.path" @click="toggleNav()" :key="link.label">{{ link.label }}</router-link>
             <!--router-link to="/" @click="toggleNav">Home</router-link>
             <router-link to="/adding-goals-vanilla" @click="toggleNav">Adding Goals (Vanilla)</router-link>
             <router-link to="/adding-goals-vue" @click="toggleNav">Adding Goals (Vue)</router-link-->
         </div>
     </div>
-    <router-view id="router-view" v-if="!navSettings.isDisplayed" />
+    <div :class="{'shownTag':!navSettings.isDisplayed,'hiddenTag':navSettings.isDisplayed}">
+        <router-view id="router-view" />
+    </div>
 </div>
 
 </template>
@@ -123,6 +131,15 @@ export default {
             }, {
                 path: "/adding-goals-vue",
                 label: "Adding Goals (Vue)"
+            }, {
+                path: "/basic-counter.vue",
+                label: "Basic Counter"
+            }, {
+                path: "/monster-mania.vue",
+                label: "Monster Mania"
+            }, {
+                path: "/contact-list.vue",
+                label: "Contact List"
             }]
         }
     },
@@ -142,3 +159,23 @@ export default {
 }
 
 </script>
+
+<!--style lang="scss">
+</style>
+<template>
+</template>
+<script>
+export default {
+    name: 'xxx',
+    data() {
+    return{}
+  },
+  computed:{},
+  methods:{},
+  mounted(){}
+  }
+</script-->
+
+<!-- style and class syntax
+:style="[{'css style':value},{camelCaseStyle:value}]"
+:class="[{'className':condition},{'className':condition}]" -->

@@ -1,3 +1,0 @@
-//function alertMe(){
-//  alert("what");
-//}

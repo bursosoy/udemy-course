@@ -20,7 +20,11 @@ html, body {
 // button
 
 .cmn_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ff8800;
+  color: #111;
   border: 0;
   font-family: Source Sans Pro;
   min-height: 2.5rem;
@@ -28,4 +32,10 @@ html, body {
   border-radius: 0.75rem 0.75rem 0.75rem 0;
   font-weight: bold;
   letter-spacing: -0.02rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.txtTomato{
+  color: tomato;
 }

@@ -22,6 +22,30 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/adding-goals-vue.vue')
+  },
+  {
+    path: '/basic-counter.vue',
+    name: 'Basic-Counter',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/basic-counter.vue')
+  },
+  {
+    path: '/monster-mania.vue',
+    name: 'Monster-Mania',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/monster-mania.vue')
+  },
+  {
+    path: '/contact-list.vue',
+    name: 'Contact-List',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/contact-list.vue')
   }
 ]
 
