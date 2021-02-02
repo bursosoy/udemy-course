@@ -38,13 +38,13 @@ export default {
     return {
       promoContent: [
         {
-          title: '100% First Time Bonus Mick',
-          description: 'Make your first successful deposit at 188BET and enjoy a one-time 30% Bonus of up to RMB 688! If you are not a 188BET member yet, join now!',
+          title: '100% First Time Bonus',
+          description: 'Make your first successful deposit at here and enjoy a one-time 30% Bonus of up to RMB 688! If you are not a github member yet, join now!',
           cta: 'Join Now!',
           iconURL: {'background-image': `url(${require('./../assets/markup-slot/hundredpcnt.png')})`}
         },
         {
-          title: 'Fortune Tower Challenge - Imperial Suite Live Casino!',
+          title: 'Fortune Monkey Challenge - Highway Suite Live Casino!',
           description: 'Accumulate your bets to obtain your n2 Tokens to stand a chance to win a Bonus and Extra Bonuses up to RMB 53,664!',
           cta: 'Claim!',
           iconURL: {'background-image': `url(${require('./../assets/markup-slot/keno.png')})`}
