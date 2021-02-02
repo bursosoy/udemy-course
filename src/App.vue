@@ -86,7 +86,6 @@
             }
         }
     }
-    #router-view {}
 }
 
 </style>
@@ -109,7 +108,6 @@
         <router-view id="router-view" />
     </div>
 </div>
-
 </template>
 
 <script>
@@ -132,14 +130,17 @@ export default {
                 path: "/adding-goals-vue",
                 label: "Adding Goals (Vue)"
             }, {
-                path: "/basic-counter.vue",
+                path: "/basic-counter",
                 label: "Basic Counter"
             }, {
-                path: "/monster-mania.vue",
+                path: "/monster-mania",
                 label: "Monster Mania"
             }, {
-                path: "/contact-list.vue",
+                path: "/contact-list",
                 label: "Contact List"
+            }, {
+                path: "/markup-slot",
+                label: "Markup Slot"
             }]
         }
     },
