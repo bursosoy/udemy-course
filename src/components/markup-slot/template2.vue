@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="title"><slot name="title"></slot></div>
+    <div class="title"><slot name="title" :promoBadge="promoBadge"></slot></div>
     <div class="content-wrap">
       <div class="thumbnail-wrap"><slot name="thumbnail"></slot></div>
       <div class="description"><slot name="description"></slot></div>
@@ -10,7 +10,16 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data(){
+    return{
+      promoBadge: 'Nightly Promo'
+    }
+  },
+    mounted(){
+        console.log(this.$slots.cta)
+    }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -21,7 +30,7 @@ export default {}
   border-radius: 0.5rem;
   padding: 1.2rem;
   .title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     letter-spacing: -0.06rem;
     color: #ff8800;

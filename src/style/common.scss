@@ -1,3 +1,9 @@
+// @font-face {
+//   font-family: AlteHaasGroteskRegular, Arial, Helvetica, sans-serif;
+//   // src: url('./../assets/fonts/AlteHaasGroteskRegular.ttf');
+//   // src: url('./../assets/fonts/AlteHaasGroteskBold.ttf');
+// }
+
 body {
   background-color: #333;
   color: #eee;
@@ -26,7 +32,7 @@ html, body {
   background-color: #ff8800;
   color: #111;
   border: 0;
-  font-family: Source Sans Pro;
+  // font-family: Alte Haas Grotesk;
   min-height: 2.5rem;
   padding: 0 1rem;
   border-radius: 0.75rem 0.75rem 0.75rem 0;

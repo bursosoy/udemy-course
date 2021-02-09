@@ -1,4 +1,4 @@
-# udemy-course
+# vue-sandbox
 
 ## Project setup
 ```

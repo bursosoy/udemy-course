@@ -156,7 +156,7 @@ export default {
                     //return this.$route.path
             }
     },
-    mounted() {}
+    mounted() {},
 }
 
 </script>
